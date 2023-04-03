@@ -11,7 +11,7 @@ slug: daily
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
     그냥 끄적..
-order: 4
+order: 5
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
 
