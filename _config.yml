@@ -19,7 +19,7 @@
 lang: en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title: 진성이의 우당탕탕 블로그
+title: KKardd's Blog
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
@@ -27,7 +27,7 @@ description: >
     안녕하세요!
 
 # A shorter description for the sidebar.
-tagline: Change `tagline` in `_config.yml`
+tagline: 안녕하세요! 저에요!
 
 # A list of keywords for your blog
 keywords: []
