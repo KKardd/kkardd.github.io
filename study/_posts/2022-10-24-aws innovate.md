@@ -2,6 +2,7 @@
 layout: post
 title: "AWS innovate"
 description: >
+hide_last_modified: true
 ---
 
 # AWS innovate Cloud services

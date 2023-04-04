@@ -2,8 +2,8 @@
 layout: post
 title: "Javascript"
 description: >
-
 sitemap: false
+hide_last_modified: true
 ---
 
 ## 자바스크립트 초급 & 중급 - 코딩앙마
