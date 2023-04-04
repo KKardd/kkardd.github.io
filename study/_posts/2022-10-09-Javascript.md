@@ -1,12 +1,12 @@
 ---
-layout: single
-title:  "Javascript"
+layout: post
+title: "Javascript"
 description: >
 sitemap: false
-
+hide_last_modified: true
 ---
 
-## 자바스크립트 초급 & 중급 - 코딩앙마 
+## 자바스크립트 초급 & 중급 - 코딩앙마
 
 ### 변수
 
@@ -24,23 +24,23 @@ const는 선언, 초기화, 할당이 동시에 일어나며 선언 이후 변�
 
 ### 생성자함수
 
-객체를 생산하는데에 함수를 이용한다. 
+객체를 생산하는데에 함수를 이용한다.
 
 ```javascript
-function Item(title,price){
-	this.title = title;
-  this.price = price;
-  this.showPrice = function(){
-    console.log(`가격은 ${price}원 입니다.`)
-  }
+function Item(title, price) {
+    this.title = title;
+    this.price = price;
+    this.showPrice = function () {
+        console.log(`가격은 ${price}원 입니다.`);
+    };
 }
 ```
 
 위와같은 Item이라는 함수를 만들었고, 인자값으로 title과 price가 존재하는데, 함수내에 this를 사용하여 쉽게 호출이 가능하다.
 
 ```javascript
-const item1 = new Item("인형", 3000)
-const item2 = new Item("가방", 4000)
+const item1 = new Item("인형", 3000);
+const item2 = new Item("가방", 4000);
 
 item1.showPrice();
 ```
@@ -79,14 +79,14 @@ item1.showPrice();
 ##### 배열 구조 분해
 
 ```javascript
-let [a,b,c] = [1, 2];
+let [a, b, c] = [1, 2];
 // c는 undefined
 
-let [a=3, b=4, c=5] = [1, 2];
+let [a = 3, b = 4, c = 5] = [1, 2];
 // a = 1, b = 2, c는 defalut값이 5이므로 5가 출력됨.
 
-let [user1, ,user2] = ['Mike', 'Tom', "Jane"];
-// user1 = Mike, user2는 Tom을 지나친 후 Jane이 된다. 
+let [user1, , user2] = ["Mike", "Tom", "Jane"];
+// user1 = Mike, user2는 Tom을 지나친 후 Jane이 된다.
 ```
 
 ##### 객체 구조 분해
@@ -100,18 +100,16 @@ console.log(userAge); // 30
 // 배열 구조 분해와 마찬가지로 defalut값 설정 가능.
 ```
 
-
-
 ### 나머지 매개변수, 전개 구문
 
 ```javascript
-function showName(...names){
-  console.log(names);
+function showName(...names) {
+    console.log(names);
 }
 
 showName(); // []
-showName('Mike'); // ['Mike']
-showName('Mike', 'Tom'); // ['Mike', 'Tom']
+showName("Mike"); // ['Mike']
+showName("Mike", "Tom"); // ['Mike', 'Tom']
 ```
 
 함수에서 arguments를 사용하지 않고 나머지 매개 변수를 사용할 수 있다.
@@ -192,9 +190,9 @@ audi.__proto__ = car;
 
 ```javascript
 const x5 = {
-  color : "blue",
-  name: "x5"
-}
+    color: "blue",
+    name: "x5",
+};
 
 x5.__proto__ = bmw;
 
@@ -219,69 +217,67 @@ extends를 사용하여 여러번 상속할 수 있으며, 위와 방법은 같�
 
 ```javascript
 const product = new Promise((resolve, reject) => {
-	setTimeout(()=> {
-    resolve('상품이 입고되었습니다.')
-  }, 3000)
+    setTimeout(() => {
+        resolve("상품이 입고되었습니다.");
+    }, 3000);
 });
 
 pr.then(
-	function(result){
-    console.log(result + '가지러 가자.')
-  },
-  function(err){
-    console.log('상품의 입고 예정이 없습니다.')
-  }
-)
+    function (result) {
+        console.log(result + "가지러 가자.");
+    },
+    function (err) {
+        console.log("상품의 입고 예정이 없습니다.");
+    }
+);
 ```
 
 new연산자를 이용하여 Promise를 생성하고, 성공했을때 resolve, 실패했을때 reject를 받는 product 변수를 생성한다. 만약 3000ms 뒤에 입고되었을 경우 성공사례로써 resolve를 소비자에게 보내는데, 그것은 아래 then에서 판단 후 '가지러 가자.'를 콘솔에 찍어낸다.
 
 ```javascript
 const f1 = () => {
-  return new Promise((res, rej) => {
-		setTimeout(() => {
-      res("1번 상품 준비 완료");
-    }, 1000)
-  })
-}
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res("1번 상품 준비 완료");
+        }, 1000);
+    });
+};
 
 const f2 = () => {
-  return new Promise((res, rej) => {
-		setTimeout(() => {
-      res("2번 상품 준비 완료");
-    }, 3000)
-  })
-}
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res("2번 상품 준비 완료");
+        }, 3000);
+    });
+};
 
 const f3 = () => {
-  return new Promise((res, rej) => {
-		setTimeout(() => {
-      res("3번 상품 준비 완료");
-    }, 2000)
-  })
-}
-
-
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res("3번 상품 준비 완료");
+        }, 2000);
+    });
+};
 ```
 
-위와 같이 만약 여러개의 상품을 주문했다고 가정해보자.  
+위와 같이 만약 여러개의 상품을 주문했다고 가정해보자.
 
 ```javascript
 f1()
-	.then((res) => f2(res))
-	.then((res) => f3(res))
-	.then((res) => console.log(res))
-	.catch(console.log);
+    .then((res) => f2(res))
+    .then((res) => f3(res))
+    .then((res) => console.log(res))
+    .catch(console.log);
 ```
 
 함수들을 callback하는 과정에서 여러번 반복하여 대기하게 될 것이고, 이는 callback hell 을 만들게 된다. 위 문구대신 async await를 사용하여 가독성을 올릴 수 있는데,
 
 ```javascript
-async function order(){
-  const result1 = await f1();
-  const result2 = await f2(result1);
-  const result3 = await f3(result2);
-  console.log(result3);
+async function order() {
+    const result1 = await f1();
+    const result2 = await f2(result1);
+    const result3 = await f3(result2);
+    console.log(result3);
 }
 ```
 
