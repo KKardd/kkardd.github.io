@@ -12,7 +12,8 @@ redirect_from:
 ---
 
 ![그림1](/assets/img/me.jpg){: width="100" height="100"}
-**_공진성_**
+
+## **_공진성_**
 
 ## 학력
 
@@ -24,7 +25,7 @@ redirect_from:
 
 ## 기술 스택
 
--   HTML, CSS, JavaScript, Node.js, express.js, Git, GitHub에 능숙함.
+-   JavaScript, Node.js, express.js, Git, GitHub에 능숙함.
 
 ## 경력
 
