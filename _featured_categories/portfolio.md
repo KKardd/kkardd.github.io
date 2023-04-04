@@ -10,7 +10,7 @@ slug: portfolio
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-    포트폴리오
+    포트폴리오..
 order: 3
 # (Optional) You can disable grouping posts by date.
 # no_groups: true

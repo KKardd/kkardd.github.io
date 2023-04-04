@@ -19,15 +19,14 @@
 lang: en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title: KKardd's Blog
+title: 개발일기장
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description: >
-    안녕하세요!
 
 # A shorter description for the sidebar.
-tagline: 안녕하세요! 저예요!
+tagline: 틀린 점 있으면 알려주세요! 감사합니다.
 
 # A list of keywords for your blog
 keywords: []
@@ -35,7 +34,7 @@ keywords: []
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo: /assets/img/me.jpg
+logo: /assets/img/profile.jpg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -84,7 +83,7 @@ remote_theme: hydecorp/hydejack@v9
 # ----------------------------------------------------------------------------------------
 
 # Sidebar image and theme color of the site.
-accent_image: /assets/img/me.jpg
+accent_image: /assets/img/See.jpg
 accent_color: rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,

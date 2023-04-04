@@ -3,14 +3,14 @@
 layout: list
 
 # The title of the tag's page.
-title: Daily
+title: Study
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: daily
+slug: study
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-    그냥 끄적..
+    뭐든 하다가 배운것들 모아 놓는 곳
 order: 5
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
