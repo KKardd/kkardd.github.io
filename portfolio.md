@@ -18,9 +18,5 @@ font-weight:bold">
 공진성
 </span>
 </center>
-<center>
-  ![그림1](/assets/img/me.jpg){: width="300" height="300"}
-</center>
 
-![그림1](/assets/img/me.jpg){: width="300" height="300"}
-
+![그림1](/assets/img/me.jpg){: width="100" height="100"}
