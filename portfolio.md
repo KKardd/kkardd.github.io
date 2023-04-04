@@ -19,7 +19,4 @@ font-weight:bold">
 </span>
 </center>
 
-
-![그림1](/Users/kong/workspace/indivisual/blog/assets/img/me.jpg)
-
-
+![그림1](/assets/img/me.jpg)
