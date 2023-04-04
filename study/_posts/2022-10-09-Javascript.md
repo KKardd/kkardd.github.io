@@ -1,7 +1,8 @@
 ---
 layout: single
 title:  "Javascript"
-
+description: >
+sitemap: false
 
 ---
 
