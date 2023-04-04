@@ -14,8 +14,8 @@ author1:
         path: /assets/img/profile.jpeg
         # srcset is optional, but can be used to provide higher res versions for retina displays
         srcset:
-            1x: /assets/img/profile.jpeg
-            2x: /assets/img/profile.jpeg
+            1x: /assets/img/background photo.jpeg
+            2x: /assets/img/background photo.jpeg
 
     # Social media icons in sidebar
     # Comment/uncommet to show/hide
