@@ -7,16 +7,15 @@ author1:
 
     # Used at the bottom of each page and at the top of the `about` layout
     # Markdown enabled, can use multiple paragraphs (enabled by `|`)
-    about me: node.js를 사용하는 웹개발 지망생입니다. 잘부탁드립니다!
-        tjdtjd1031@gmail.com
+    about: node.js를 사용하는 웹개발 지망생입니다. 잘부탁드립니다!
 
     # This photo will be used in the about section
     picture:
-        path: /assets/img/profile.jpg
+        path: /assets/img/profile.jpeg
         # srcset is optional, but can be used to provide higher res versions for retina displays
         srcset:
-            1x: /assets/img/profile.jpg
-            2x: /assets/img/profile.jpg
+            1x: /assets/img/profile.jpeg
+            2x: /assets/img/profile.jpeg
 
     # Social media icons in sidebar
     # Comment/uncommet to show/hide
