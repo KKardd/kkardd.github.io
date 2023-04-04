@@ -18,3 +18,8 @@ font-weight:bold">
 공진성
 </span>
 </center>
+
+
+![그림1](/Users/kong/workspace/indivisual/blog/assets/img/me.jpg)
+
+
