@@ -1,15 +1,13 @@
 ---
 layout: about
-image: /assets/img/profile.jpeg
+image: /assets/img/me.jpeg
 description: >
 hide_description: true
 redirect_from:
     -
 ---
 
-# About
-
-<!--author-->
+# Portfolio
 
 ---
 
