@@ -1,10 +1,10 @@
 ---
-layout: portfolio
+layout: about
 image: /assets/img/profile.jpeg
 description: >
 hide_description: true
 redirect_from:
-    - /download/
+    -
 ---
 
 # About
