@@ -11,7 +11,7 @@ redirect_from:
 
 ---
 
-![그림1](/assets/img/me.jpg){: width="100" height="100"}
+![그림1](/assets/img/me.jpg){: width="400" height="400"}
 
 ## **_공진성_**
 
