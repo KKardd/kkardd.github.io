@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: about
 image: /assets/img/me.jpg
 description: >
 sitemap: false
