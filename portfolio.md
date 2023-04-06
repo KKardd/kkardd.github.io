@@ -1,10 +1,9 @@
 ---
-layout: about
+layout: post
 image: /assets/img/me.jpg
 description: >
+sitemap: false
 hide_description: true
-redirect_from:
-    -
 ---
 
 # Portfolio
