@@ -8,8 +8,6 @@ hide_description: true
 
 # Portfolio
 
----
-
 ![그림1](/assets/img/me.jpg){: width="400" height="400"}
 
 ## **_공진성_**
@@ -20,7 +18,7 @@ hide_description: true
 
 ## 프로젝트
 
--
+-   x
 
 ## 기술 스택
 
