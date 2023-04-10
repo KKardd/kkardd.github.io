@@ -50,6 +50,11 @@ menu:
       url: /portfolio/
     - title: Project
       url: /project/
+      submenu:
+          - title: Test1
+            url: /test1/
+          - title: Test2
+            url: /test2/
     - title: Study
       url: /study/
 
