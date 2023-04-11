@@ -11,9 +11,7 @@ hide_last_modified: true
 
 Dwitter 프로젝트를 진행하던 도중, Validation에 대해 정리해두면 좋을 거 같아서 정리한다.
 
-
-
-Middleware 탭을 만들어 그 안에 validate.js 파일을 만든 후, 아래와 같이 작성하여 필요할때 불러내어 작성하도록 만들었다.
+Middleware 탭을 만들어 그 안에 validate.js 파일을 만든 후, 아래와 같이 작성하여 필요할때 불러내어 작성할 수 있도록 깔쌈하게 했다.
 
 ```javascript
 import {validationResult} from "express-validator";
@@ -44,7 +42,7 @@ const validateCredential = [
 ];
 
 const validatesignup = [
-    ...validateCredential,
+    ...validateCredential, //위에 username, password 가져와서 검사하는 애
     body("name").trim().notEmpty().withMessage("name is missing"),
     body("email")
         .trim()
@@ -72,6 +70,9 @@ router.post("/login", validateCredential, authController.login);
 
 
 
-찾아보니 생각보다 많은 라이브러리 함수들이 있어서 그걸 표로 다 옮겨적긴 무리가 있으니 깃허브 링크를 둬야겠다. 찾아와서 봐야징
+찾아보니 생각보다 많은 라이브러리 함수들이 있어서 그걸 표로 다 옮겨적긴 무리가 있으니 깃허브 링크를 둬야겠다. 
 
-https://github.com/validatorjs/validator.js
+[https://github.com/validatorjs/validator.js]: 
+
+찾아와서 봐야징
+
