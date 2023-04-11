@@ -11,7 +11,7 @@ slug: study
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
     뭐든 하다가 배운것들 모아 놓는 곳
-order: 5
+order: 4
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
 

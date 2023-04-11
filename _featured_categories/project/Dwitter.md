@@ -1,3 +1,4 @@
+---
 layout: list
 category: subcat
 bigtitle: Dwitter
@@ -9,3 +10,4 @@ related_posts:
     -
 list: true
 order: 1
+---
