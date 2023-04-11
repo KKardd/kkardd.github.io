@@ -1,6 +1,5 @@
 function spread(count) {
     let submenu = document.getElementById("submenu-" + count);
-    console.log(submenu, "???");
     if (submenu) {
         if (submenu.classList.contains("hide"))
             submenu.classList.remove("hide");
