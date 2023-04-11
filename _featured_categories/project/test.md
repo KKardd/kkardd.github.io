@@ -1,8 +1,8 @@
 ---
 layout: list
 category: subcat
-bigtitle: testProjectFolder
-slug: testProjectFolder
+bigtitle: test
+slug: test
 description: >
     하위메뉴 테스트2
 

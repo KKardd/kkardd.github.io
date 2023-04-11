@@ -4,7 +4,7 @@ category: subcat
 bigtitle: Dwitter
 slug: Dwitter
 description: >
-    하위메뉴 테스트1
+    Dwitter for nodejs / clone coding
 
 related_posts:
     -
