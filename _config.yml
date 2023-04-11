@@ -48,15 +48,15 @@ author:
 menu:
     - title: Portfolio
       url: /portfolio/
-    - title: Study
-      url: /study/
     - title: Project
       url: /project/
       submenu:
-          - title: Test1
-            url: /test1/
-          - title: Test2
-            url: /test2/
+          - title: Dwitter
+            url: /dwitter/
+          - title: Test
+            url: /test/
+    - title: Study
+      url: /study/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
