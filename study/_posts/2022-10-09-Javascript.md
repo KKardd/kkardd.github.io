@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Javascript"
+title: "Javascript summarize"
 description: >
 sitemap: false
 hide_last_modified: true
 ---
 
-## 자바스크립트 초급 & 중급 - 코딩앙마
+## Javascript summarize
 
 ---
 
