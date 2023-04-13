@@ -70,7 +70,7 @@ router.post("/login", validateCredential, authController.login);
 
 
 
-찾아보니 생각보다 많은 라이브러리 함수들이 있어서 그걸 표로 다 옮겨적긴 무리가 있으니 깃허브 링크를 둬야겠다. 
+찾아보니 생각보다 많은 라이브러리 함수들이 있어서 그걸 표로 다 옮겨적긴 무리가 있으니 깃허브 링크를 둬야겠다. [Validator.js]
 
 [Validator.js]: https://github.com/validatorjs/validator.js
 
