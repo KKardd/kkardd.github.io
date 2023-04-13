@@ -9,6 +9,8 @@ hide_last_modified: true
 
 ---
 
+
+
 안그래도 영어 자신없는데 commit message 신경쓰려니까 죽을맛이다. 그러니까 내 블로그에다가 적어놓고 두고두고 와서 컨닝해야겠다. 아니 이게 참고하던 티스토리 게시글이 두개인데 한번에 보면 좋을 거 같아서 베껴왔다.
 
 ### Commit Message structure
@@ -63,6 +65,8 @@ Fix A where B → B로 발생하는 A를 수정
 
 Fix A when B → B일 때 발생하는 A를 수정
 
+
+
 ---
 
 ### Add
@@ -73,6 +77,8 @@ Add A for B → B를 위해 A를 추가
 
 Add A to B → B에 A를 추가
 
+
+
 ---
 
 ### Remove
@@ -81,15 +87,17 @@ Remove A → A를 삭제
 
 Remove A from B → B에서의 A삭제
 
+
+
 ---
 
 ### Update
 
 Update A to B → A를 B로 업데이트
 
----
 
-그 외 등등
+
+---
 
 ##### Improve / correct / prevent / rename / move
 
@@ -98,6 +106,8 @@ Update A to B → A를 B로 업데이트
 ---
 
 참고한 자료는 아래의 링크와 같습니다. 사실상 거의 베낀 거 같긴 한데, 제가 까먹을 때 열심히 와서 보겠습니다. 감사합니다.
+
+​	
 
 [좋은 commit msg 작성법]
 
