@@ -7,7 +7,7 @@ sitemap: false
 
 # Dwitter Error applying database
 
-
+---------------------
 
 Dwitter 를 쳤는데 자꾸 자동완성으로 Twitter으로 된다. Dwitter은 내가 만든건데,,
 
