@@ -13,6 +13,8 @@ Dwitter 프로젝트를 진행하던 도중, Validation에 대해 정리해두�
 
 Middleware 탭을 만들어 그 안에 validate.js 파일을 만든 후, 아래와 같이 작성하여 필요할때 불러내어 작성할 수 있도록 깔쌈하게 했다.
 
+​	
+
 ```javascript
 import {validationResult} from "express-validator";
 
