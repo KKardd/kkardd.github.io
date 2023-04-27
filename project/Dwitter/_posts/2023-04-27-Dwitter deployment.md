@@ -7,9 +7,9 @@ sitemap: false
 
 # Dwitter deployment
 
----------------------
+---
 
-이제 진짜 배포까지 완료했다. 재밌으니까 링크도 한번 걸어놔본다. 누가와서 써도 내가 관리하러도 잘 안 들어가기때문에  뭐 어떻게든 되겠지 싶다.
+이제 진짜 배포까지 완료했다. 재밌으니까 링크도 한번 걸어놔본다. 누가와서 써도 내가 관리하러도 잘 안 들어가기때문에 뭐 어떻게든 되겠지 싶다.
 
 [Dwitter]
 
@@ -55,14 +55,11 @@ export const config = {
         allowedOrigin: required("CORS_ALLOW_ORIGIN"),
     },
 };
-
 ```
 
 첫번째로 마주한 오류는 단순한 오타였다. 나는 왜 secret의 스펠링이 secert으로 알고있었나 싶다. 진짜 바보같이 뭐가 오류인지도 못찾고 어버버버버 하다가 발견했다 ㅋㅋㅋ 이때부터 좀 멘탈이 나가있었던 거 같다.
 
 .env파일은 비밀이니까 비밀로하겠다. 비밀.
-
-
 
 다음으로 app.js 파일을 한번 살펴보자.
 
@@ -110,9 +107,7 @@ sequelize.sync().then(() => {
 });
 ```
 
-두번째로, cors에 관련된 이해가 부족했다. 그냥 "아! 남들이 맘대로 내 웹사이트 베껴가면 안되니까 설정하는게 cors구나라고 개념만 이해하고, *로 그냥 모든 곳에서 허용하다가보니 좀 더 까먹었던 거 같다. cors_allow_origin의 값에 프론트 url을 넣어줌으로써 하나의 오류를 해결했다."
-
-
+두번째로, cors에 관련된 이해가 부족했다. 그냥 "아! 남들이 맘대로 내 웹사이트 베껴가면 안되니까 설정하는게 cors구나라고 개념만 이해하고, \*로 그냥 모든 곳에서 허용하다가보니 좀 더 까먹었던 거 같다. cors_allow_origin의 값에 프론트 url을 넣어줌으로써 하나의 오류를 해결했다."
 
 마지막으로 배포를 하는 과정에서 나는 로컬호스트의 존재는 아예 없어진다고 생각했다. 그리고 나오는 DB_PORT를 어! 저것만 연동하면 되나? 하고서 코드를 아래와 같이 짰다.
 
@@ -128,7 +123,14 @@ sequelize.sync().then(() => {
 
 앞으로는 정신차리구 잘 해야지!
 
+![dwitter1](./Users/kong/workspace/indivisual/blog/assets/img/Project/dwitter/dwitter1.png)
 
+![dwitter2](./Users/kong/workspace/indivisual/blog/assets/img/Project/dwitter/dwitter2.png)
+
+---
+
+![dwitter3](./assets/img/Project/dwitter/dwitter1.png)
+
+![dwitter4](./assets/img/Project/dwitter/dwitter2.png)
 
 [Dwitter]: https://ubiquitous-heliotrope-94127b.netlify.app/
-
