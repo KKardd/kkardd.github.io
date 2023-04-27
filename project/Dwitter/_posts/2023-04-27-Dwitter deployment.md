@@ -133,4 +133,10 @@ sequelize.sync().then(() => {
 
 ![dwitter4](./assets/img/Project/dwitter/dwitter2.png)
 
+---
+
+![dwitter5](../../../assets/img/Project/dwitter/dwitter1.png)
+
+![dwitter6](../../../assets/img/Project/dwitter/dwitter2.png)
+
 [Dwitter]: https://ubiquitous-heliotrope-94127b.netlify.app/
