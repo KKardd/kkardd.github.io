@@ -123,18 +123,6 @@ sequelize.sync().then(() => {
 
 앞으로는 정신차리구 잘 해야지!
 
-![dwitter1](./Users/kong/workspace/indivisual/blog/assets/img/Project/dwitter/dwitter1.png)
-
-![dwitter2](./Users/kong/workspace/indivisual/blog/assets/img/Project/dwitter/dwitter2.png)
-
----
-
-![dwitter3](./assets/img/Project/dwitter/dwitter1.png)
-
-![dwitter4](./assets/img/Project/dwitter/dwitter2.png)
-
----
-
 ![dwitter5](../../../assets/img/Project/dwitter/dwitter1.png)
 
 ![dwitter6](../../../assets/img/Project/dwitter/dwitter2.png)
