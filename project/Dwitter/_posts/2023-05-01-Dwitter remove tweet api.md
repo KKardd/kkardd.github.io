@@ -26,8 +26,8 @@ export async function deleteTweet(req, res) {
     }
     const reqUserId = req.userId.toString;
     const reqTweetId = tweet.userId.toString;
-    if (reqUserId !== reqTweetId && reqUserId !== 1) { 
-      // 요기 reqUserId !== 1이라는게 userId 1번을 제외한 사람이 delete요청을 보내면 원래 403을 보내주는 구조였던걸 바꿔준 것이다.
+    if (reqUserId !== reqTweetId && reqUserId !== 1) {
+        // 요기 reqUserId !== 1이라는게 userId 1번을 제외한 사람이 delete요청을 보내면 원래 403을 보내주는 구조였던걸 바꿔준 것이다.
         return res.sendStatus(403);
     }
     await tweetRepository.remove(id);
@@ -39,9 +39,9 @@ api를 만들었다기보단 그냥 원래있던 api를 살짝 수정한것으�
 
 근데 그 후, 한 친구는 selenium을 이용한 자동 tweet 생성기도 만들었다. 후,, 밑에는 생성한 걸 나한테 찍어서 보낸 동영상이다.
 
-![dwitter5](../../../assets/img/Project/dwitter/KakaoTalk_Video_2023-05-01-11-38-54.mp4)
+![video1](../../../assets/img/Project/dwitter/KakaoTalk_Video_2023-05-01-11-38-54.mp4)
 
-지금 내가 수정한 delete api로는 위와 같은 사람이 저런식으로 tweet을 찍어낸다면 일일이 하나씩 지워줘야한다. 무리다. 
+지금 내가 수정한 delete api로는 위와 같은 사람이 저런식으로 tweet을 찍어낸다면 일일이 하나씩 지워줘야한다. 무리다.
 
 그래서 이번엔 진짜 api를 짰다. username을 받으면 그 username에 해당하는 tweet들을 전부 찾아서 삭제하는 api를 말이다. 아래는 그 코드이다.
 
@@ -63,13 +63,13 @@ export async function deleteTweetByUserId(req, res) {
 }
 ```
 
-구조는, username을 쿼리문으로 받아와 그 username이 존재하지 않을때는 Not found를 보내주고, 그 후 원래 있던 getAllByUsername을 호출하여 그 username에 해당하는 게시글들을 전부 data에 넣어주었다. 
+구조는, username을 쿼리문으로 받아와 그 username이 존재하지 않을때는 Not found를 보내주고, 그 후 원래 있던 getAllByUsername을 호출하여 그 username에 해당하는 게시글들을 전부 data에 넣어주었다.
 
 그 후, data를 빙글빙글 돌면서 data.id값들을 deleteArr에 전부 넣어준 뒤, remove함수를 deleteArr의 길이만큼 빙글빙글 돌며 빼주었다.
 
 remove함수는 위에서 적어놓은 deleteTweet함수에서 사용한 것과 똑같은 것이다. 이렇게 성공적으로 저렇게 내 소중한 dwitter에 tweet을 찍어내는 악당을 처단한 줄 알았으나,
 
-![dwitter5](../../../assets/img/Project/dwitter/KakaoTalk_Video_2023-05-01-11-54-03.mp4)
+![video2](../../../assets/img/Project/dwitter/KakaoTalk_Video_2023-05-01-11-54-03.mp4)
 
 진짜 쉽지않게도 아래 동영상과 같이 다시 공격해왔다. 이건 랜덤함수를 이용해 username을 만들고 거기서 tweet을 끄적, 다시 새로운 username을 만들고 다시 끄적, 이거에 반복이였다. 이건 차후에 다룰 의도적으로 api를 찍어내듯 호출하는 것이므로 강의 보너스 챕터에 Rate Limiter을 걸어줘야겠다.
 
