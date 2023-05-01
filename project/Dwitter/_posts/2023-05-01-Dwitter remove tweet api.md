@@ -39,7 +39,7 @@ api를 만들었다기보단 그냥 원래있던 api를 살짝 수정한것으�
 
 근데 그 후, 한 친구는 selenium을 이용한 자동 tweet 생성기도 만들었다. 후,, 밑에는 생성한 걸 나한테 찍어서 보낸 동영상이다.
 
-![video1](../../../assets/img/Project/dwitter/KakaoTalk_Video_2023-05-01-11-38-54.mp4)
+[![video1](https://img.youtube.com/vi/Tz-t1iSfLdg/0.jpg)](https://youtube.com/shorts/Tz-t1iSfLdg "실행")
 
 지금 내가 수정한 delete api로는 위와 같은 사람이 저런식으로 tweet을 찍어낸다면 일일이 하나씩 지워줘야한다. 무리다.
 
@@ -69,7 +69,7 @@ export async function deleteTweetByUserId(req, res) {
 
 remove함수는 위에서 적어놓은 deleteTweet함수에서 사용한 것과 똑같은 것이다. 이렇게 성공적으로 저렇게 내 소중한 dwitter에 tweet을 찍어내는 악당을 처단한 줄 알았으나,
 
-![video2](../../../assets/img/Project/dwitter/KakaoTalk_Video_2023-05-01-11-54-03.mp4)
+[![video2](https://img.youtube.com/vi/3S2rqoJg0oA/0.jpg)](https://youtube.com/shorts/3S2rqoJg0oA "실행")
 
 진짜 쉽지않게도 아래 동영상과 같이 다시 공격해왔다. 이건 랜덤함수를 이용해 username을 만들고 거기서 tweet을 끄적, 다시 새로운 username을 만들고 다시 끄적, 이거에 반복이였다. 이건 차후에 다룰 의도적으로 api를 찍어내듯 호출하는 것이므로 강의 보너스 챕터에 Rate Limiter을 걸어줘야겠다.
 
