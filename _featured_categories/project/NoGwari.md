@@ -1,10 +1,10 @@
 ---
 layout: list
 category: subcat
-bigtitle: test
-slug: test
+bigtitle: NoGwari
+slug: NoGwari
 description: >
-    하위메뉴 테스트
+    Gwana FanCafe Project
 
 related_posts:
     -

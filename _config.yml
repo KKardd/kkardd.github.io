@@ -53,8 +53,8 @@ menu:
       submenu:
           - title: Dwitter
             url: /dwitter/
-          - title: Test
-            url: /test/
+          - title: NoGwari
+            url: /NoGwari/
     - title: Study
       url: /study/
 
