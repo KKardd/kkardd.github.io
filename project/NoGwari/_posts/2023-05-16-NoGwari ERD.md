@@ -2,7 +2,6 @@
 layout: post
 title: NoGwari ERD
 description: >
-    테스트
 sitemap: false
 ---
 
@@ -68,4 +67,4 @@ board테이블을 예시로 들자면, PK NN UQ B UN ZF AI G 이 녀석들 이�
 
 위에서 서술한 주의사항들을 수렴하여 만든 ERD이다. 프로젝트가 진행되면서 ERD의 수정사항이 생길 수 있는데, 최대한 많은걸 생각해서 만든 첫 ERD니 애정이 가는 거 같다.
 
-열심히 해봐야겠당 헤헤
+**열심히** 해봐야겠당 헤헤
