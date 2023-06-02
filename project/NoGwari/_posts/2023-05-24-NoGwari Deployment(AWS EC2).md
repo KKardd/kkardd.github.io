@@ -33,7 +33,7 @@ sitemap: false
 
 ![](../../../assets/img/Project/nogwari/deploy5.png)
 
-6.스토리지 구성인데 얘도 건든거 없음..
+6. 스토리지 구성인데 얘도 건든거 없음..
 
 ![](../../../assets/img/Project/nogwari/deploy6.png)
 
@@ -49,4 +49,4 @@ sitemap: false
 
 글로쓰면 왜이리 간단해보이지. 저렇게 하는과정에서 되게 많은 우여곡절이 있었는데,,
 
-여튼 배포관련해서 **끝!**
+여튼 배포관련해서 **끝!**	
