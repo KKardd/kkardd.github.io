@@ -13,27 +13,27 @@ sitemap: false
 
 ## 배포과정
 
-1. 인스턴스 시작 버튼
+* #### 인스턴스 시작 버튼
 
 ![](../../../assets/img/Project/nogwari/deploy1.png)
 
-2. 이름 세팅
+* #### 이름 세팅
 
 ![](../../../assets/img/Project/nogwari/deploy2.png)
 
-3. OS설정(프리티어면 저 버전 고정)
+* #### OS설정(프리티어면 저 버전 고정)
 
 ![](../../../assets/img/Project/nogwari/deploy3.png)
 
-4. 키페어이름 설정
+* #### 키페어이름 설정
 
 ![](../../../assets/img/Project/nogwari/deploy4.png)
 
-5. 네트워크 설정인데 건들인거 없음..
+* #### 네트워크 설정인데 건들인거 없음..
 
 ![](../../../assets/img/Project/nogwari/deploy5.png)
 
-6. 스토리지 구성인데 얘도 건든거 없음..
+* #### 스토리지 구성인데 얘도 건든거 없음..
 
 ![](../../../assets/img/Project/nogwari/deploy6.png)
 
