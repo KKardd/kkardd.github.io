@@ -7,11 +7,11 @@ function spread(count) {
 
     let spreadIcon = document.getElementById("spread-icon-" + count);
     if (spreadIcon) {
-        if (spreadIcon.innerHTML == "") {
-            spreadIcon.innerHTML = "";
+        if (spreadIcon.innerHTML == "arrow_right") {
+            spreadIcon.innerHTML = "arrow_drop_down";
             spreadIcon.style.color = "grey";
         } else {
-            spreadIcon.innerHTML = "";
+            spreadIcon.innerHTML = "arrow_right";
             spreadIcon.style.color = "white";
         }
     }
