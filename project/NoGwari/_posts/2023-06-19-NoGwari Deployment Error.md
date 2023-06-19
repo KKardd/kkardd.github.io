@@ -26,8 +26,6 @@ Firewall is active and enabled on system startup
 
 그래서 저 문구에 yes!한 이후 ec2 서버가 연결이 안되기 시작하였고, 시험기간이라서 확인 못하고 있다가 지금 확인한다. 그래서 velog에 있는 게시글을 참고하여 이 오류를 고쳤는데, 방법은 다음과 같다.
 
-내가 찾은 오류는, 방화
-
 1. 신규 인스턴스 시작
    그냥 처음 배포할때 만들었던것처럼 인스턴스를 새로운 것을 생성시켰다.
 
@@ -60,3 +58,9 @@ Firewall is active and enabled on system startup
 접속이 완료되었다. 이게되네. 저 과정이 아마 볼륨을 새로 초기화해주면서 기본 방화벽 설정으로 돌아가는 거 같다. 근데 진짜 지금 나의 얄팍한 지식수준으론 완벽히 이해하진 못했는데, 저렇다고 가슴으로 이해했다.
 
 여튼 뭐 ec2 살렸다면 오케이 아닐까요? 진짜 다행이다...
+
+
+
+[참고 사이트]
+
+[참고 사이트]: https://yvvyoon.github.io/ubuntu/ufw-enable-ssh-timeout/
