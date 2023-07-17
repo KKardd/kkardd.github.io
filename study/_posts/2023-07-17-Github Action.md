@@ -84,4 +84,6 @@ npm start 명령어는 node app.js이다.
 
 사실 나도 지금 상태로 보면 github action 찍먹한것이다. 근데 그럼에도, 성공해서 기분이 좋기때문에 정리할겸 블로그 글 작성했다.
 
-**야무치~!**
+**야무치~! 짜잔~ commit message 잘 출력됐답니다~**
+
+![dwitter5](../../assets/img/Study/github2.png)
