@@ -19,7 +19,7 @@ hide_last_modified: true
 
 길게 길게 말했긴 하지만, **결론적으로** 크롤링의 이유는 github 페이지에서 내 커밋 메세지를 확인하고자 하였고, 매일매일 github action을 사용하여 크롤링할거기 때문에, 해당 날 전 날의 잔디를 클릭해야한다. 
 
-![dwitter5](../../assets/img/Study/puppeter.png)
+![dwitter5](../../assets/img/Study/Puppeter.png)
 
 클릭하는 과정까지 크롤링에 성공하였는데, 코드는 아래와 같다.
 
