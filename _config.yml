@@ -55,6 +55,8 @@ menu:
             url: /dwitter/
           - title: NoGwari
             url: /NoGwari/
+          - title: DongA
+            url: /DongA/
     - title: Study
       url: /study/
 
