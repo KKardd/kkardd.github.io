@@ -57,6 +57,8 @@ menu:
             url: /NoGwari/
           - title: DongA
             url: /DongA/
+          - title: 광생
+            url: /kwangsaeng/
     - title: Study
       url: /study/
 
