@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 광생 회고록
+title: 2023 광생 회고록
 description: >
 sitemap: false
 ---
 
-# 광생 회고록
+# 2023 광생 회고록
 
 ---

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: DongA 회고록
+title: 2023 DongA 회고록
 description: >
 sitemap: false
 ---
 
-# DongA 회고록
+# 2023 DongA 회고록
 
 ---
