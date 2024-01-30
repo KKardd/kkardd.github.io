@@ -52,13 +52,13 @@ menu:
       url: /project/
       submenu:
           - title: Dwitter
-            url: /dwitter/
+            url: /dwitter/realization
           - title: NoGwari
-            url: /NoGwari/
+            url: /NoGwari/realization
           - title: DongA
-            url: /DongA/
+            url: /DongA/realization
           - title: 광생
-            url: /kwangsaeng/
+            url: /kwangsaeng/realization
     - title: Study
       url: /study/
 
