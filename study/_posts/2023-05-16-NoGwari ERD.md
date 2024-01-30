@@ -13,7 +13,7 @@ sitemap: false
 
 블로그 글 쓰는게 워낙 귀찮다보니 이렇게 하나둘씩 밀려가나 싶다. 근데 와중에 블로그 써야할 내용들은 개발하면서 주석처리로 "이거 써야겠다!" 라고 표시해뒀다 ㅋㅋㅋㅋ 차근차근 올려야겠다......
 
-![](../../../assets/img/Project/nogwari/erd1.png)
+![](../../assets/img/Project/nogwari/erd1.png)
 
 ㅋㅋㅋㅋㅋ 일단 이거부터 봐야한다. 데이터베이스 ERD를 구축하는 과정에서 우선, 게시판과 게시판에서의 카테고리 테이블, Img테이블, reply테이블을 만들고 user와 결합하는게 제일 먼저 프로젝트의 내용이다. 근데 ㅋㅋㅋㅋ 저렇게 테이블명을짜고, 저렇게 스키마들 앞에 테이블명들을 다 명시해줘야 나중에 스키마값을 따올때 더 편할거라고 생각했었다. 근데 진짜 막상 코드짜보면서 db에 접근하기 정말 불편하다.
 
@@ -27,7 +27,7 @@ sitemap: false
 
 ### 관계 타입
 
-![](../../../assets/img/Project/nogwari/type1.png)
+![](../../assets/img/Project/nogwari/type1.png)
 
 이 내용인데, 이건 진짜 죽어도 안 까먹을 거 같으니 설명을 대강 하자면, 진짜 의미에 써있는 그대로라고 생각하면 될 거 같다. 이 프로젝트에서 예시를 들자면, 게시판에서의 댓글에 관한 예시가 편할 거 같다. 게시물 한개에 대해 여러개의 댓글이 달릴 수 있다. 이처럼 한개 → 여러개라는건 너무나도 일대다 관계를 의미하지 않나 싶다.
 
@@ -35,7 +35,7 @@ sitemap: false
 
 ### 스키마 제약조건
 
-![](../../../assets/img/Project/nogwari/datatype1.png)
+![](../../assets/img/Project/nogwari/datatype1.png)
 
 board테이블을 예시로 들자면, PK NN UQ B UN ZF AI G 이 녀석들 이야기인데, 하나하나 표로 정리해보겠다.
 
@@ -63,7 +63,7 @@ board테이블을 예시로 들자면, PK NN UQ B UN ZF AI G 이 녀석들 이�
 
 이정도가 나에게 고문을 시켰던 주의사항들이다. 그리고 후술하겠지만 NoGwari프로젝트에서 ORM(sequelize)를 사용한다. Sequelize를 사용할때는 그냥 진짜 테이블명이건 칼럼명이건 다 소문자로 쓰자. 잘 못 알아먹는다. 후... 다시 생각해도 열받네.
 
-![](../../../assets/img/Project/nogwari/erd2.png)
+![](../../assets/img/Project/nogwari/erd2.png)
 
 위에서 서술한 주의사항들을 수렴하여 만든 ERD이다. 프로젝트가 진행되면서 ERD의 수정사항이 생길 수 있는데, 최대한 많은걸 생각해서 만든 첫 ERD니 애정이 가는 거 같다.
 

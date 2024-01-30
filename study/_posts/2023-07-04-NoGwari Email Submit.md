@@ -20,11 +20,11 @@ Google Oauth도 붙이긴 했지만, 자체 회원가입도 이미 만들어두�
 
 우선 내가 혼자서 할때는 우여곡절이 좀 있었지만 제일 먼저 해줘야하는건 email을 보내줄 아이디를 만드는것과 그 아이디에서 **2단계 인증**을 하는것이다. 아이디를 만드는거야 뭐 하면 되는거고, Google 계정에서 보안탭을 보면 2단계 인증이라는 것을 찾아서 설정해줘야한다. 설정을 완료하면 아래와 같이 된다.
 
-![](../../../assets/img/Project/nogwari/mailsubmit1.png)
+![](../../assets/img/Project/nogwari/mailsubmit1.png)
 
 설정한 후 스크롤을 내리다보면 앱 비밀번호라는 탭이 생성된다. 생성하란대로 하면 알파벳으로 이루어진 16자가 나오는데, 이를 꼭 기억해야한다. 설명을 위해서 나는 "abcd efgh ijkl mnop"라고 하자.
 
-![](../../../assets/img/Project/nogwari/mailsubmit2.png)
+![](../../assets/img/Project/nogwari/mailsubmit2.png)
 
 이를 .env파일에 아래와 같이 저장해두었다.
 
@@ -90,4 +90,4 @@ redis에 관련된 건 다음 글에서 설명할테니 emailConfig부분부터 
 
 **노력의 결과물**
 
-![](../../../assets/img/Project/nogwari/mailsubmit3.png)
+![](../../assets/img/Project/nogwari/mailsubmit3.png)

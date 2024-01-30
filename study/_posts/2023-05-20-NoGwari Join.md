@@ -11,7 +11,7 @@ sitemap: false
 
 
 
-![](../../../assets/img/Project/nogwari/erd2.png)
+![](../../assets/img/Project/nogwari/erd2.png)
 
 아직 FE는 시작도 안했지만,, 나는 테이블 조인단계에 벌써 들어와버렸다. 이번 글은 조인하면서 방황한 일에 간단하게 정의하고 글을 끝내려고 한다. 글은 짧아도 이걸로 6시간은 방황한 거 같으니 기분나빠서라도 써야겠다. 
 
@@ -105,4 +105,4 @@ const INCLUDED_ALL = {
 };
 ```
 
-![](../../../assets/img/Project/nogwari/board1.png)
+![](../../assets/img/Project/nogwari/board1.png)

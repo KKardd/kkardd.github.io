@@ -531,4 +531,4 @@ components:
 
 FE는 진짜 학교에서 찍먹으로 배워본 거 말고는 배워본적이 없는데, swagger하다보니 색깔도 알록달록 이뻐서 하나하나 적용하는게 너무 재밌었던 거 같다. Swagger api 색깔 만든 사람 진짜 상줘야할 거 같다. 야무지다.
 
-![](../../../assets/img/Project/nogwari/swagger.png)
+![](../../assets/img/Project/nogwari/swagger.png)

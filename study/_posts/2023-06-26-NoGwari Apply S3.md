@@ -11,7 +11,7 @@ sitemap: false
 
 NoGwari에서 게시글을 작성할때, 솔직히 text만 있는 게시글이면 재미없으니까 이미지를 추가하고자 하였다. 여러가지 툴들을 요리조리 찾아보다가  어떻게 해야할지 감이 안오길래 카카오톡 nodejs 오픈채팅방에 질문을 하였다. 진짜 친절하게도 여러분들이 답변해주셨는데, 이런 거 진짜 다 처음봐서 엄청 신기했고, 감사했다. 감사합니다.
 
-![](../../../assets/img/Project/nogwari/image question.png)
+![](../../assets/img/Project/nogwari/image question.png)
 
 **도와주셨던 분들 감사합니다...**
 
@@ -21,11 +21,11 @@ NoGwari에서 게시글을 작성할때, 솔직히 text만 있는 게시글이�
 
 그냥 사이트가서 만들기 해주면 되는데, 주의해야할 점이 있다. 아래 사진에 있는 모든 퍼블릭 액세스 차단을 풀어주는 것이다. 
 
-![](../../../assets/img/Project/nogwari/s3_1.png)
+![](../../assets/img/Project/nogwari/s3_1.png)
 
 그리고 객체 소유권에대한 옵션도 아래와 같이 바꿔주었다.
 
-![](../../../assets/img/Project/nogwari/s3_2.png)
+![](../../assets/img/Project/nogwari/s3_2.png)
 
 나중에 알았는데, ACL 비활성화를 시켜두면 내 로컬환경에서도 The bucket does not allow ACLs라는 오류로 버킷에 이미지가 등록이 안되기 때문에, 만들때부터 옵션을 이렇게 두는게 좋을 거 같다.
 
@@ -35,7 +35,7 @@ IAM은 우선 임의의 사용자를 만드는 기술이다. 어떤 정책이나
 
 그래서 IAM에 들어가 사용자를 만들다보면 
 
-![](../../../assets/img/Project/nogwari/s3_3.png)
+![](../../assets/img/Project/nogwari/s3_3.png)
 
 이와 같은 옵션이 있다. 음.. 예를 들어서 설명을 해보자
 
@@ -48,7 +48,7 @@ IAM은 우선 임의의 사용자를 만드는 기술이다. 어떤 정책이나
 
 이거 읽다보면 '정책? 정책이 뭔데?'라고 생각하는 사람이 있을거다. 정책은 앞서 예시에서 말했던 기계에 대한 권한 같은 것이다. 만약 사용자 그룹을 만들고, 그 그룹안에 사용자를 넣는 방법이라면 사용자 그룹을 만들면서 권한 정책을 넣는 페이지가 있을것이고, 사용자에게 직접 권한을 연결해준다고 하면 만들면서 권한정책을 정할 수 있는 탭이 있을 것이다.
 
-![](../../../assets/img/Project/nogwari/s3_4.png)
+![](../../assets/img/Project/nogwari/s3_4.png)
 
 만약 S3에 대한 정책을 추가하고자 한다면 위 사진처럼 추가해주면 된다.
 IAMFullAccess라는 건 하는 사람도 있고 안하는 사람도 있어서 잘 모르겠지만 **AmazonS3FullAccess**라는 애는 무조건 권한을 부여해줘야하는 거 같다.

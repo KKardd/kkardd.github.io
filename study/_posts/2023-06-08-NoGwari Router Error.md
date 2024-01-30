@@ -31,7 +31,7 @@ sitemap: false
 
    
 
-   ![](../../../assets/img/Project/nogwari/router.png)
+   ![](../../assets/img/Project/nogwari/router.png)
 
 위에 처럼 chatGPT가 알려주었다. 진짜 거짓말안치고 똑같은 예시이다.
 

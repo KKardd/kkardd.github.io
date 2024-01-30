@@ -19,7 +19,7 @@ const verifyKey = Math.floor(Math.random() * 899999) + 100000; 과 같은 코드
 
 그래서 여기선 이제 동기중 먼저 스프링으로 취직한 형한테 자문을 구했다.
 
-![](../../../assets/img/Project/nogwari/verify1.png)
+![](../../assets/img/Project/nogwari/verify1.png)
 
 그렇다고 한다. 어렵게 들어간 회사에서 사표쓰고 회사 나가야하는건 애로하다. 카톡에서 보다싶이 원래는 이메일 인증여부랑 userId값만 받는 테이블하나 새로 파서 거기에다 저장하여 조인해서 쓰려했으나, redis라는걸 처음 들어보기도 했고, 뭐든 한번 하고싶어지기 때문에 적용하고자 마음 먹었다. 근데 이녀석이 생각보다 번거로웠다.
 
@@ -31,9 +31,9 @@ const verifyKey = Math.floor(Math.random() * 899999) + 100000; 과 같은 코드
 
 그 후, DB정보를 찾다보면
 
-![](../../../assets/img/Project/nogwari/verify2.png)
+![](../../assets/img/Project/nogwari/verify2.png)
 
-![](../../../assets/img/Project/nogwari/verify3.png)
+![](../../assets/img/Project/nogwari/verify3.png)
 
 아래와 같이 정보가 있다. password는 옆에 눈알모양을 눌러 확인한다음 아래와 같이 config해두자.
 

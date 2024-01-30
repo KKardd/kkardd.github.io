@@ -15,35 +15,35 @@ sitemap: false
 
 * #### 인스턴스 시작 버튼
 
-![](../../../assets/img/Project/nogwari/deploy1.png)
+![](../../assets/img/Project/nogwari/deploy1.png)
 
 * #### 이름 세팅
 
-![](../../../assets/img/Project/nogwari/deploy2.png)
+![](../../assets/img/Project/nogwari/deploy2.png)
 
 * #### OS설정(프리티어면 저 버전 고정)
 
-![](../../../assets/img/Project/nogwari/deploy3.png)
+![](../../assets/img/Project/nogwari/deploy3.png)
 
 * #### 키페어이름 설정
 
-![](../../../assets/img/Project/nogwari/deploy4.png)
+![](../../assets/img/Project/nogwari/deploy4.png)
 
 * #### 네트워크 설정인데 건들인거 없음..
 
-![](../../../assets/img/Project/nogwari/deploy5.png)
+![](../../assets/img/Project/nogwari/deploy5.png)
 
 * #### 스토리지 구성인데 얘도 건든거 없음..
 
-![](../../../assets/img/Project/nogwari/deploy6.png)
+![](../../assets/img/Project/nogwari/deploy6.png)
 
 **여기까지하면 인스턴스 실행이 완료된다.**
 
 근데 이렇게만하면 실행은 되는데, 아무것도 연결되지않는 인스턴스가 된다. 
 
-![](../../../assets/img/Project/nogwari/deploy7.png)
+![](../../assets/img/Project/nogwari/deploy7.png)
 
-![](../../../assets/img/Project/nogwari/deploy8.png)
+![](../../assets/img/Project/nogwari/deploy8.png)
 
 위와같이 보안그룹에 인바운드 규칙에서 허용을 해줘야한다. 지금은 모든 3000포트와 80포트에 대해 모든 IP가 들어올 수 있게 해주었다. 그렇게 해준다면 일단 접속은 된다. 보안은 모르겠고 일단 배포가 되어서 기쁘다.
 
