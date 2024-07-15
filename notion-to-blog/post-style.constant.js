@@ -1,7 +1,7 @@
 const getPostStyle = function (title) {
     return `---
 layout: post
-title: ${title}
+title: "${title}"
 description: >
 sitemap: false
 ---
