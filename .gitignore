@@ -5,4 +5,5 @@ _site
 vendor
 
 node_modules
+script.js
 get-secret-notion-key.js
