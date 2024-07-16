@@ -24,7 +24,7 @@ const n2m = new NotionToMarkdown({notionClient: notion});
             const imageUrlStartIdx = block.parent.indexOf("https://");
             const imageUrl = block.parent.slice(imageUrlStartIdx, -1);
             await downloadImage(imageUrl, title, i);
-            block.parent = `![image.jpg](../../assets/img/Study/${title}-${i})`;
+            block.parent = `![image.jpg](../../assets/img/Study/${title}-${i}.jpg)`;
             i++;
         }
     }
