@@ -4,24 +4,34 @@ const getKey = require("./get-secret-notion-key.js");
 const getPostStyle = require("./post-style.constant.js");
 const fs = require("fs");
 const path = require("path");
+const axios = require("axios");
 
 const secreyKey = getKey();
-
 const notion = new Client({
     auth: secreyKey,
 });
-
-// passing notion client to the option
 const n2m = new NotionToMarkdown({notionClient: notion});
 
 (async () => {
     // 제목 설정
-    const title = "Test Post";
+    const title = "학술제 발표";
     // 페이지 ID 설정
-    const mdblocks = await n2m.pageToMarkdown("52a907bed6144f5d8fe562a7da813609");
+    const mdblocks = await n2m.pageToMarkdown("f67c9e37654042c99cb23e8643d7a93f");
+
+    let i = 0;
+    for (const block of mdblocks) {
+        if (block.type === "image") {
+            const imageUrlStartIdx = block.parent.indexOf("https://");
+            const imageUrl = block.parent.slice(imageUrlStartIdx, -1);
+            await downloadImage(imageUrl, title, i);
+            block.parent = `![image.jpg](../../assets/img/Study/${title}-${i})`;
+            i++;
+        }
+    }
 
     const date = await getDate();
     let mdString = n2m.toMarkdownString(mdblocks);
+
     mdString.parent = mdString.parent.replace(/\n\n/g, "\n");
     const refinedPost = getPostStyle(title);
 
@@ -55,4 +65,25 @@ async function getDate() {
     const formattedDate = `${year}-${month}-${day}`;
 
     return formattedDate;
+}
+
+async function downloadImage(url, title, idx) {
+    const savePath = path.resolve(__dirname + "/..") + `/assets/img/Study/${title}-${idx}.jpg`;
+    try {
+        const response = await axios({
+            url,
+            responseType: "stream",
+        });
+
+        const writer = fs.createWriteStream(savePath);
+
+        response.data.pipe(writer);
+
+        return new Promise((resolve, reject) => {
+            writer.on("finish", resolve);
+            writer.on("error", reject);
+        });
+    } catch (error) {
+        console.error(`Error downloading the image: ${error}`);
+    }
 }
