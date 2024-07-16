@@ -3,7 +3,7 @@ const getPostStyle = function (title) {
 layout: post
 title: "${title}"
 description: >
-sitemap: false
+hide_last_modified: true
 ---
 
 # ${title}
