@@ -14,9 +14,9 @@ const n2m = new NotionToMarkdown({notionClient: notion});
 
 (async () => {
     // 제목 설정
-    const title = "학술제 발표";
+    const title = "Prisma VS TypeORM";
     // 페이지 ID 설정
-    const mdblocks = await n2m.pageToMarkdown("f67c9e37654042c99cb23e8643d7a93f");
+    const mdblocks = await n2m.pageToMarkdown("85619f0c5ed2484484f75b3106ada85d");
 
     let i = 0;
     for (const block of mdblocks) {
@@ -55,6 +55,14 @@ async function getDate() {
     // 한국 시간(KST)으로 변환합니다.
     const kstOffset = 9 * 60; // KST는 UTC+9 이므로, 분 단위로 변환합니다.
     const kstTime = new Date(now.getTime() + kstOffset * 60 * 1000);
+
+    // 시간을 추출하여 9시 이전인지 확인합니다.
+    const hours = kstTime.getUTCHours();
+
+    // 만약 오전 9시 이전이라면, 날짜를 전날로 조정합니다.
+    if (hours < 9) {
+        kstTime.setUTCDate(kstTime.getUTCDate() - 1);
+    }
 
     // 연도, 월, 일을 추출합니다.
     const year = kstTime.getUTCFullYear();
