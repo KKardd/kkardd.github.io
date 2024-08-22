@@ -14,9 +14,9 @@ const n2m = new NotionToMarkdown({notionClient: notion});
 
 (async () => {
     // 제목 설정
-    const title = "Prisma VS TypeORM";
+    const title = "Multiple Query, SubQuery, LeftJoinQuery";
     // 페이지 ID 설정
-    const mdblocks = await n2m.pageToMarkdown("85619f0c5ed2484484f75b3106ada85d");
+    const mdblocks = await n2m.pageToMarkdown("f8ae3510dffb42128c49331c06b8955f");
 
     let i = 0;
     for (const block of mdblocks) {
