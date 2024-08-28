@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "axios": "^1.7.2"
+    "@notionhq/client": "^2.2.15",
+    "axios": "^1.7.2",
+    "notion-to-md": "^3.1.1"
   }
 }

@@ -2,7 +2,7 @@ name: Notion to Jekyll
 
 on:
     schedule:
-        - cron: "30 22 * * *"
+        - cron: "59 22 * * *"
 
 jobs:
     build:
@@ -23,7 +23,7 @@ jobs:
             - name: Run Notion to Jekyll script
               env:
                   NOTION_KEY: ${{ secrets.NOTION_KEY }}
-                  NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+                  NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
               run: node notion-to-blog/schedule-script.js
 
             - name: Commit and push changes
