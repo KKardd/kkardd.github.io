@@ -1,31 +1,35 @@
-name: Scheduled Jekyll Deployment
+name: Notion to Jekyll
 
-# 매일 오전 0시에 워크플로우 실행
 on:
     schedule:
-        - cron: "54 21 * * *"
+        - cron: "30 22 * * *"
 
 jobs:
     build:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout code
+            - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: Set up Ruby
-              uses: ruby/setup-ruby@v1
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
               with:
-                  ruby-version: 2.7
+                  node-version: "16"
 
             - name: Install dependencies
-              run: bundle install
+              run: npm install
 
-            - name: Build Jekyll site
-              run: bundle exec jekyll build
+            - name: Run Notion to Jekyll script
+              env:
+                  NOTION_KEY: ${{ secrets.NOTION_KEY }}
+                  NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+              run: node notion-to-blog/schedule-script.js
 
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./_site
+            - name: Commit and push changes
+              run: |
+                  git config --local user.email "you@example.com"
+                  git config --local user.name "GitHub Action"
+                  git add .
+                  git commit -m "Add new posts from Notion"
+                  git push
