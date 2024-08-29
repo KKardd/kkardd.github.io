@@ -14,6 +14,15 @@ const n2m = new NotionToMarkdown({notionClient: notion});
 (async () => {
     const blogDbId = process.env.NOTION_DB_ID; // 블로그 페이지 ID
 
+    // 이전에 게시된 페이지의 ID를 저장한 파일 경로
+    const postedPagesFile = path.resolve(__dirname, "posted_pages.json");
+    let postedPages = [];
+
+    // 파일이 존재하면, 게시된 페이지 ID를 읽어옴
+    if (fs.existsSync(postedPagesFile)) {
+        postedPages = JSON.parse(fs.readFileSync(postedPagesFile)).posted_pages;
+    }
+
     // 블로그 페이지의 하위 페이지를 가져옴
     const response = await notion.databases.query({
         database_id: blogDbId,
@@ -24,7 +33,15 @@ const n2m = new NotionToMarkdown({notionClient: notion});
         if (page.object !== "page") {
             continue;
         }
+
         const pageId = page.id;
+
+        // 이미 게시된 페이지인지 확인
+        if (postedPages.includes(pageId)) {
+            console.log(`페이지 ${pageId}는 이미 게시되었습니다.`);
+            continue;
+        }
+
         const title = page.properties.이름.title[0].plain_text;
         const mdblocks = await n2m.pageToMarkdown(pageId);
 
@@ -52,10 +69,14 @@ const n2m = new NotionToMarkdown({notionClient: notion});
                 if (err) {
                     console.error("파일을 저장하는 동안 오류가 발생했습니다.", err);
                 } else {
-                    console.log("파일이 성공적으로 저장되었습니다.");
+                    console.log(`파일이 성공적으로 저장되었습니다: ${title}`);
                 }
             }
         );
+
+        // 새로운 페이지 ID를 저장
+        postedPages.push(pageId);
+        fs.writeFileSync(postedPagesFile, JSON.stringify({posted_pages: postedPages}, null, 2));
     }
 })();
 
