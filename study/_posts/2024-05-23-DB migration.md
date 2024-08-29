@@ -17,7 +17,8 @@ DB migration(MySQL → PostgreSQL)이 진행되며 일어난 Issue에 대해 회
 Serverless SasS DB인 PlanetScale을 사용했는데, Hobby Plan이 종료된다는 소식이였다. 일시적인 종료가 아닌, 무료 플랜 자체를 지원하지 않는다고 한다.
 MVP 1.0 단계에서 최소한의 비용으로 서비스를 검증받아야하는 상황이고, 당시 Client에 비해 Server의 소요는 충분했기에, DB migration을 진행하며 비용을 최소화 하기로 했다.
 
-같은 SaaS 서비스인 Supabase를 사용하기로 하였다. 둘 다 같은 Serverless 기반 서비스라 개발자들이 개발에 집중할 수 있게 인프라에 대해 부담감을 덜어준다는 장점을 가지고 있다는게 큰 이유였다고 생각한다.
+같은 SaaS 서비스인 Supabase를 사용하기로 하였다. AWS RDS도 시도해봤지만, 매 달 약 12$가 나올 뿐더러, PlanetScale처럼 Serverless 기반 서비스의 결핍으로 인해 몇 없는 개발자들이 인프라에 계속 신경써야하는게 거슬렸다.
+따라서 개발에 집중할 수 있게 인프라에 대해 부담감을 덜어줄 수 있는 Supabase로 결정했다.
 
 두 서비스의 차이점은 MySQL과 PostgreSQL이라는 점이다. 당시에 대표님이 이 작업에 소요를 물어보셨을 때, ORM이 적용되어 있던 애플리케이션이라 소요가 크지 않을 것이라 판단했다. 하지만…. 막상 그렇진 않았다..
 
