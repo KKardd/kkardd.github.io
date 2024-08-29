@@ -7,11 +7,71 @@ sitemap: false
 
 # NoGwari Email Verify(redis)
 
----------------------
+---
+
+-   2024-08-30 수정
+
+2023년 7월 5일의 진성이를 오랜만에 되돌아봤는데 놀랐다. 진짜 어쩜 저렇게 큐티하게 고민할수가 있는가. 심지어 방법도 잘못됐다. 수정하기 위해서 블로그 글을 재작성하려고 한다.
+
+Nogwari프로젝트는 비록 내 곁을 떠났지만,, 그래도 잘못된 내용을 전달하면 안된다는 생각에 블로그 글도 리팩토링을 진행한다.
+
+이 글의 주요 요점은 메일을 전송한 뒤, 인증코드를 저장할 저장소가 필요했던 것이고, Database대신 In-memory db인 redis를 이용한 글이다.
+~~막상 당시에는 In-memory라는 생각보단, redis라는 존재가 신기해서 적용했던 거 같긴 하다.~~
+
+블로그글 리팩토링을 결심한 계기는 잘못된 코드때문이다.
+
+```javascript
+// auth_middleware.js
+export const redisMiddleware = async (req, res, next) => {
+    const redisURL = `redis://${process.env.REDIS_USERNAME}:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`;
+    const client = await redis.createClient({
+        url: redisURL,
+        legacyMode: true, // 요거 꼭 필요하다.
+    });
+    req.redisClient = client;
+    next();
+};
+```
+
+당시에는 redis를 사용하는 공간은 다양한 기능 중, 회원가입 시 인증코드를 검증하는 수단밖에 없었고, 그렇다면 redis를 회원가입하는 기능에만 연결시키면 되지 않을까?란 의도였던 거 같다.
+하지만, 이와 같은 방식이라면 redis client를 다중으로 생성하게 되고, db connection 연결이 다중으로 되는것과 비슷하다고 생각된다.
+
+이것보단 차라리,
+
+```javascript
+// redisClient.js
+import redis from "redis";
+
+const redisURL = `redis://${process.env.REDIS_USERNAME}:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`;
+const client = redis.createClient({
+    url: redisURL,
+    legacyMode: true,
+});
+
+client.connect().catch(console.error);
+
+export default client;
+```
+
+```javascript
+// auth_middleware.js
+import redisClient from "./redisClient";
+
+export const redisMiddleware = (req, res, next) => {
+    req.redisClient = redisClient;
+    next();
+};
+```
+
+이와 같은 방식으로 app에서 redisClient를 한번만 실행시키는게 더 적합하다고 생각한다.
+
+이를 유의해 아래 글도 읽어보면 좋을 거 같다! **그럼 20000!**
+
+---
 
 이게 좀 골치아팠다. 문제점은 이거였다. 메일을 전송하는 함수(mailSubmit)에서 인증키를 발급한다. 이 인증키를 발급하는 과정은 어찌어찌 찾아보니
 
-const verifyKey = Math.floor(Math.random() * 899999) + 100000; 과 같은 코드로 6자리 임의의 숫자를 만들 수 있었다. 여기까지는 순조로웠다.
+const verifyKey = Math.floor(Math.random() \* 899999) + 100000; 과 같은 코드로 6자리 임의의 숫자를 만들 수 있었다. 여기까지는 순조로웠다.
 
 근데 메일을 전송하는 함수에서 전송된 메일에 인증키를 검증하는 함수를 또 만들었는데, 이 둘 사이에 인증키는 같아야하지않는가? 근데 그게 불가능했다.
 
@@ -136,4 +196,3 @@ export async function checkVerifyKey(req, res) {
 아나 진짜 저 get함수가 진짜 오질라게 말썽피웠는데, 사용 방법이 다 제각각이다. 어떤 문서에는 그냥 let data = redisClient.get(`${email})하면 바로 data로 들어오지않나. 근데 난 안되고. 하. 화가 너무 났었다. 그래도 뭐 이젠 잘 되니 OK아닐까요?
 
 [redis]: https://yvvyoon.github.io/ubuntu/ufw-enable-ssh-timeout/
-
