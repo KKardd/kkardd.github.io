@@ -36,6 +36,10 @@ const n2m = new NotionToMarkdown({notionClient: notion});
 
         const pageId = page.id;
 
+        if (page.properties.태그.select.name !== "완성") {
+            continue;
+        }
+
         // 이미 게시된 페이지인지 확인
         if (postedPages.includes(pageId)) {
             console.log(`페이지 ${pageId}는 이미 게시되었습니다.`);
