@@ -31,5 +31,5 @@ jobs:
                   git config --local user.email "you@example.com"
                   git config --local user.name "GitHub Action"
                   git add .
-                  git commit -m "Add new posts from Notion"
-                  git push
+                  git commit -m "Add new posts from Notion" || echo "No changes to commit"
+                  git push || echo "Nothing to push"
