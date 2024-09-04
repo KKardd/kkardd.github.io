@@ -14,18 +14,29 @@ const n2m = new NotionToMarkdown({notionClient: notion});
 
 (async () => {
     // 제목 설정
-    const title = "DB migration";
+    const title = "DB migrationasd";
     // 페이지 ID 설정
-    const mdblocks = await n2m.pageToMarkdown("b0d616077d1c474b8ab6b4747dd2d842");
+    const mdblocks = await n2m.pageToMarkdown("9df5d9b3a4ea47989f6b5eb9ac7995ee");
 
-    let i = 0;
+    let imageCount = 0;
+    let fileCount = 0;
     for (const block of mdblocks) {
         if (block.type === "image") {
             const imageUrlStartIdx = block.parent.indexOf("https://");
             const imageUrl = block.parent.slice(imageUrlStartIdx, -1);
-            await downloadImage(imageUrl, title, i);
-            block.parent = `![image.jpg](../../assets/img/Study/${title}-${i}.jpg)`;
-            i++;
+            await download(imageUrl, title, imageCount, "jpg");
+            block.parent = `![image.jpg](../../assets/img/Study/${title}-${imageCount}.jpg)`;
+            imageCount++;
+        } else if (block.type === "file") {
+            // 파일 첨부 처리
+            const fileUrlStartIdx = block.parent.indexOf("https://");
+            const fileUrl = block.parent.slice(fileUrlStartIdx, -1);
+            const fileExtensionStartIdx = block.parent.indexOf(".", block.parent.indexOf("?X-Amz-Algorithm=") - 6) + 1;
+            const fileExtensionEndIdx = block.parent.indexOf("?X-Amz-Algorithm=");
+            const fileExtension = block.parent.slice(fileExtensionStartIdx, fileExtensionEndIdx);
+            await download(fileUrl, title, fileCount, fileExtension);
+            block.parent = `[Download file](../../assets/img/Study/${title}-${fileCount}.${fileExtension})`;
+            fileCount++;
         }
     }
 
@@ -75,8 +86,8 @@ async function getDate() {
     return formattedDate;
 }
 
-async function downloadImage(url, title, idx) {
-    const savePath = path.resolve(__dirname + "/..") + `/assets/img/Study/${title}-${idx}.jpg`;
+async function download(url, title, idx, type) {
+    const savePath = path.resolve(__dirname + "/..") + `/assets/img/Study/${title}-${idx}.${type}`;
     try {
         const response = await axios({
             url,

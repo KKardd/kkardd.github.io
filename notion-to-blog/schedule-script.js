@@ -34,29 +34,40 @@ const n2m = new NotionToMarkdown({notionClient: notion});
             continue;
         }
 
-        const pageId = page.id;
-
         if (page.properties.태그.select.name !== "완성") {
             continue;
         }
 
+        const pageId = page.id;
+        const title = page.properties.이름.title[0].plain_text;
+
         // 이미 게시된 페이지인지 확인
         if (postedPages.includes(pageId)) {
-            console.log(`페이지 ${pageId}는 이미 게시되었습니다.`);
+            console.log(`글 -${title}-은 이미 게시되었습니다.`);
             continue;
         }
-
-        const title = page.properties.이름.title[0].plain_text;
         const mdblocks = await n2m.pageToMarkdown(pageId);
 
-        let i = 0;
+        let imageCount = 0;
+        let fileCount = 0;
         for (const block of mdblocks) {
             if (block.type === "image") {
                 const imageUrlStartIdx = block.parent.indexOf("https://");
                 const imageUrl = block.parent.slice(imageUrlStartIdx, -1);
-                await downloadImage(imageUrl, title, i);
-                block.parent = `![image.jpg](../../assets/img/Study/${title}-${i}.jpg)`;
-                i++;
+                await download(imageUrl, title, imageCount, "jpg");
+                block.parent = `![image.jpg](../../assets/img/Study/${title}-${imageCount}.jpg)`;
+                imageCount++;
+            } else if (block.type === "file") {
+                // 파일 첨부 처리
+                const fileUrlStartIdx = block.parent.indexOf("https://");
+                const fileUrl = block.parent.slice(fileUrlStartIdx, -1);
+                const fileExtensionStartIdx =
+                    block.parent.indexOf(".", block.parent.indexOf("?X-Amz-Algorithm=") - 6) + 1;
+                const fileExtensionEndIdx = block.parent.indexOf("?X-Amz-Algorithm=");
+                const fileExtension = block.parent.slice(fileExtensionStartIdx, fileExtensionEndIdx);
+                await download(fileUrl, title, fileCount, fileExtension);
+                block.parent = `[Download file](../../assets/img/Study/${title}-${fileCount}.${fileExtension})`;
+                fileCount++;
             }
         }
 
@@ -101,8 +112,8 @@ async function getDate() {
     return `${year}-${month}-${day}`;
 }
 
-async function downloadImage(url, title, idx) {
-    const savePath = path.resolve(__dirname + "/..") + `/assets/img/Study/${title}-${idx}.jpg`;
+async function download(url, title, idx, type) {
+    const savePath = path.resolve(__dirname + "/..") + `/assets/img/Study/${title}-${idx}.${type}`;
     try {
         const response = await axios({
             url,
