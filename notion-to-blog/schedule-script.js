@@ -30,45 +30,36 @@ const n2m = new NotionToMarkdown({notionClient: notion});
 
     // 각 하위 페이지에 대해 처리
     for (const page of response.results) {
-        if (page.object !== "page") {
+        if (page.object !== "page" || page.properties.태그.select.name !== "완성") {
             continue;
         }
 
-        if (page.properties.태그.select.name !== "완성") {
+        // 이미 게시된 페이지인지 확인
+        if (postedPages.includes(page.id)) {
+            console.log(`글 -${title}-은 이미 게시되었습니다.`);
             continue;
         }
 
         const pageId = page.id;
         const title = page.properties.이름.title[0].plain_text;
-
-        // 이미 게시된 페이지인지 확인
-        if (postedPages.includes(pageId)) {
-            console.log(`글 -${title}-은 이미 게시되었습니다.`);
-            continue;
-        }
         const mdblocks = await n2m.pageToMarkdown(pageId);
 
-        let imageCount = 0;
-        let fileCount = 0;
+        let cnt = 0;
         for (const block of mdblocks) {
+            const downloadUrl = block.parent.slice(block.parent.indexOf("https://"), -1);
             if (block.type === "image") {
-                const imageUrlStartIdx = block.parent.indexOf("https://");
-                const imageUrl = block.parent.slice(imageUrlStartIdx, -1);
-                await download(imageUrl, title, imageCount, "jpg");
-                block.parent = `![image.jpg](../../assets/img/Study/${title}-${imageCount}.jpg)`;
-                imageCount++;
-            } else if (block.type === "file") {
-                // 파일 첨부 처리
-                const fileUrlStartIdx = block.parent.indexOf("https://");
-                const fileUrl = block.parent.slice(fileUrlStartIdx, -1);
+                await download(downloadUrl, title, cnt, "jpg");
+                block.parent = `![image.jpg](../../assets/img/Study/${title}-${cnt}.jpg)`;
+            } else if (block.type === "file" || block.type === "video") {
+                // 파일 확장자별 처리
                 const fileExtensionStartIdx =
                     block.parent.indexOf(".", block.parent.indexOf("?X-Amz-Algorithm=") - 6) + 1;
                 const fileExtensionEndIdx = block.parent.indexOf("?X-Amz-Algorithm=");
                 const fileExtension = block.parent.slice(fileExtensionStartIdx, fileExtensionEndIdx);
-                await download(fileUrl, title, fileCount, fileExtension);
-                block.parent = `[Download file](../../assets/img/Study/${title}-${fileCount}.${fileExtension})`;
-                fileCount++;
+                await download(downloadUrl, title, cnt, fileExtension);
+                block.parent = `[Download file](../../assets/img/Study/${title}-${cnt}.${fileExtension})`;
             }
+            cnt++;
         }
 
         const date = await getDate();
