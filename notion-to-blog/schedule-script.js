@@ -34,14 +34,15 @@ const n2m = new NotionToMarkdown({notionClient: notion});
             continue;
         }
 
+        const pageId = page.id;
+        const title = page.properties.이름.title[0].plain_text;
+
         // 이미 게시된 페이지인지 확인
         if (postedPages.includes(page.id)) {
             console.log(`글 -${title}-은 이미 게시되었습니다.`);
             continue;
         }
 
-        const pageId = page.id;
-        const title = page.properties.이름.title[0].plain_text;
         const mdblocks = await n2m.pageToMarkdown(pageId);
 
         let cnt = 0;
