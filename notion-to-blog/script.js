@@ -67,8 +67,14 @@ const n2m = new NotionToMarkdown({notionClient: notion});
             console.error("파일을 저장하는 동안 오류가 발생했습니다.", err);
         } else {
             console.log("파일이 성공적으로 저장되었습니다.");
+            return -1;
         }
     });
+
+    // 새로운 페이지 ID를 저장
+    const postedPagesFile = path.resolve(__dirname, "posted_pages.json");
+    postedPages.push(pageId);
+    fs.writeFileSync(postedPagesFile, JSON.stringify({posted_pages: postedPages}, null, 2));
 })();
 
 // 현재 날짜를 KST 기준으로 가져오는 함수
