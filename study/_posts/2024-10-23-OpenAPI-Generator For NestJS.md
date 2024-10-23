@@ -16,34 +16,38 @@ hide_last_modified: true
 # ⭐ What I Learned
 
 ### OpenAPI-Generator
-- Openapi를 생성하는 json이나 yaml파일을 가지고서 codegen해주는 녀석입니다.
-- 아래 사진만 봐도 어마무시하게 다양한 언어 및 프레임워크에서 지원하는 것을 볼 수 있는데, nestjs 옆에는 experimental이라는 불안한 문구가 붙어있습니다.
+
+-   Openapi를 생성하는 json이나 yaml파일을 가지고서 codegen해주는 녀석입니다.
+-   아래 사진만 봐도 어마무시하게 다양한 언어 및 프레임워크에서 지원하는 것을 볼 수 있는데, nestjs 옆에는 experimental이라는 불안한 문구가 붙어있습니다.
+
 ![image.jpg](../../assets/img/Study/OpenAPI-Generator For NestJS-6.jpg)
 
 ![image.jpg](../../assets/img/Study/OpenAPI-Generator For NestJS-7.jpg)
 
 아니나 다를까 처음보는 nestjs 코드를 생성하더군요,,(codegen 만든 사람이 nestjs 안써본 거 같았습니다.)
 
-그래서 [OpenAPI-Generator의 깃헙 코드](https://github1s.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/TypeScriptNestjsClientCodegen.java)를 보고 codegen template을 적용하는 방법을 찾아 오버라이드 해버렸습니다. (공식문서에도 템플릿을 수정하는 방법이 잘 안 나와있어(~~자바로만 있어~~) 좀 헤맸습니다.) 
+그래서 [OpenAPI-Generator의 깃헙 코드](https://github1s.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/TypeScriptNestjsClientCodegen.java)를 보고 codegen template을 적용하는 방법을 찾아 오버라이드 해버렸습니다. (공식문서에도 템플릿을 수정하는 방법이 잘 안 나와있어(~~자바로만 있어~~) 좀 헤맸습니다.)
 Mustache이라는 템플릿 언어를 처음 작성해봤는데, 생각보다 엄청 직관적이더군요..!
 
 ### Mustache
-- Mustache는 웹 개발에서 자주 사용되는 **로직 없는 템플릿 엔진**입니다.
-- 다양한 프로그래밍 언어와 함께 사용될 수 있으며, 주로 HTML, XML, JSON 등의 형식에서 변수를 바인딩해 데이터를 표시하는 데 사용된다고 합니다.
-아래의 두개의 tamplate mustache파일을 생성했습니다.
+
+-   Mustache는 웹 개발에서 자주 사용되는 **로직 없는 템플릿 엔진**입니다.
+-   다양한 프로그래밍 언어와 함께 사용될 수 있으며, 주로 HTML, XML, JSON 등의 형식에서 변수를 바인딩해 데이터를 표시하는 데 사용된다고 합니다.
+    아래의 두개의 tamplate mustache파일을 생성했습니다.
 
 ```markdown
 # model.mustache
+
 {{#models}}
 {{#model}}
 import { IsString, IsNumber, IsBoolean, IsOptional, IsNotEmpty } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 export class {{classname}} {
 {{#vars}}
-    @ApiProperty({{#description}}{ description: '{{{description}}}' }{{/description}})
-    {{#required}}@IsNotEmpty(){{/required}}{{^required}}@IsOptional(){{/required}}
-    {{#isString}}@IsString(){{/isString}}{{#isInteger}}@IsNumber(){{/isInteger}}{{#isLong}}@IsNumber(){{/isLong}}{{#isFloat}}@IsNumber(){{/isFloat}}{{#isDouble}}@IsNumber(){{/isDouble}}{{#isBoolean}}@IsBoolean(){{/isBoolean}}
-    {{name}}{{^required}}?{{/required}}: {{{dataType}}};
+@ApiProperty({{#description}}{ description: '{{{description}}}' }{{/description}})
+{{#required}}@IsNotEmpty(){{/required}}{{^required}}@IsOptional(){{/required}}
+{{#isString}}@IsString(){{/isString}}{{#isInteger}}@IsNumber(){{/isInteger}}{{#isLong}}@IsNumber(){{/isLong}}{{#isFloat}}@IsNumber(){{/isFloat}}{{#isDouble}}@IsNumber(){{/isDouble}}{{#isBoolean}}@IsBoolean(){{/isBoolean}}
+{{name}}{{^required}}?{{/required}}: {{{dataType}}};
 {{/vars}}
 }
 {{/model}}
@@ -52,27 +56,27 @@ export class {{classname}} {
 
 ```markdown
 # api.service.mustache
+
 import { Injectable } from '@nestjs/common';
 {{#models}}
 import { {{classname}} } from './{{classname}}.dto';
 {{/models}}
 @Injectable()
 export class {{classname}} {
-  {{#operations}}
-  {{#operation}}
-  {{operationId}}({{#allParams}}{{baseName}}: {{dataType}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): Promise<{{returnType}}> {
-    // Business Logics
-    return {
-      // Return Data
-    };
-  }
-  {{/operation}}
-  {{/operations}}
+{{#operations}}
+{{#operation}}
+{{operationId}}({{#allParams}}{{baseName}}: {{dataType}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): Promise<{{returnType}}> {
+// Business Logics
+return {
+// Return Data
+};
+}
+{{/operation}}
+{{/operations}}
 }
 ```
 
-### 
-Result
+### Result
 
 ![image.jpg](../../assets/img/Study/OpenAPI-Generator For NestJS-20.jpg)
 

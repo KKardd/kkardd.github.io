@@ -11,9 +11,7 @@ hide_last_modified: true
 
 # 🚂 Motivation
 
-AUSG의 현제님이 올려주신 영상을 보고 생각해본 걸 쓰려고 한다.
-
-[bookmark](https://www.youtube.com/watch?v=wZt0uzrfxrY)
+AUSG의 현제님이 올려주신 Node VS Java의 향로님 의견을 담은 [영상](https://www.youtube.com/watch?v=wZt0uzrfxrY)시청한 후, 생각해본 걸 쓰려고 한다.
 
 # 💭 Impression
 
