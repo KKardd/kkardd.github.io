@@ -37,7 +37,7 @@ Mustache이라는 템플릿 언어를 처음 작성해봤는데, 생각보다 �
 
 ```
 # model.mustache
-
+{% raw %}
 {{#models}}
 {{#model}}
 import { IsString, IsNumber, IsBoolean, IsOptional, IsNotEmpty } from 'class-validator';
@@ -52,11 +52,12 @@ export class {{classname}} {
 }
 {{/model}}
 {{/models}}
+{% endraw %}
 ```
 
 ```
 # api.service.mustache
-
+{% raw %}
 import { Injectable } from '@nestjs/common';
 {{#models}}
 import { {{classname}} } from './{{classname}}.dto';
@@ -73,6 +74,7 @@ return {
 }
 {{/operation}}
 {{/operations}}
+{% endraw %}
 }
 ```
 
