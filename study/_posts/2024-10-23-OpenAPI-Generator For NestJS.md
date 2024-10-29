@@ -35,7 +35,7 @@ Mustache이라는 템플릿 언어를 처음 작성해봤는데, 생각보다 �
 -   다양한 프로그래밍 언어와 함께 사용될 수 있으며, 주로 HTML, XML, JSON 등의 형식에서 변수를 바인딩해 데이터를 표시하는 데 사용된다고 합니다.
     아래의 두개의 tamplate mustache파일을 생성했습니다.
 
-```markdown
+```
 # model.mustache
 
 {{#models}}
@@ -54,7 +54,7 @@ export class {{classname}} {
 {{/models}}
 ```
 
-```markdown
+```
 # api.service.mustache
 
 import { Injectable } from '@nestjs/common';
