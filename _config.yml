@@ -46,19 +46,19 @@ author:
 
 # Add links to the sidebar.
 menu:
-    - title: Portfolio
-      url: /portfolio/
-    - title: Project
-      url: /project/
-      submenu:
-          - title: Dwitter
-            url: /dwitter/realization
-          - title: NoGwari
-            url: /NoGwari/realization
-          - title: DongA
-            url: /DongA/realization
-          - title: 광생
-            url: /kwangsaeng/realization
+    # - title: Portfolio
+    #   url: /portfolio/
+    # - title: Project
+    #   url: /project/
+    #   submenu:
+    #       - title: Dwitter
+    #         url: /dwitter/realization
+    #       - title: NoGwari
+    #         url: /NoGwari/realization
+    #       - title: DongA
+    #         url: /DongA/realization
+    #       - title: 광생
+    #         url: /kwangsaeng/realization
     - title: Study
       url: /study/
 
